@@ -1,7 +1,12 @@
+import { BrowserRouter } from "react-router-dom";
+
 import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
 import { SecondaryButton } from "./components/atoms/button/SecondaryButton";
 import { SearchInput } from "./components/molecules/SearchInput";
 import { UserCard } from "./components/organisms/user/UserCard";
+import { DefaultLayout } from "./components/templates/DefaultLayout";
+import { HeaderOnly } from "./components/templates/HeaderOnly";
+
 import "./styles.css";
 
 export default function App() {
@@ -16,12 +21,14 @@ export default function App() {
     website: "https://google.com"
   };
   return (
-    <div className="App">
-      <PrimaryButton>Test</PrimaryButton>
-      <SecondaryButton>Search</SecondaryButton>
-      <br />
-      <SearchInput />
-      <UserCard user={user} />
-    </div>
+    <BrowserRouter>
+      <DefaultLayout>
+        <PrimaryButton>Test</PrimaryButton>
+        <SecondaryButton>Search</SecondaryButton>
+        <br />
+        <SearchInput />
+        <UserCard user={user} />
+      </DefaultLayout>
+    </BrowserRouter>
   );
 }
